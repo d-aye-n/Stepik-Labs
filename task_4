@@ -1,5 +1,15 @@
 users = ['user1', 'user2', 'user3', 'user1', 'user4', 'user2']
 
 # TODO Добавьте словарь и замените в нем нулевые значения статисчикой посещений
+users_amount = 0
+unique_users = 0
 
-print({'Общее количество': len(users), 'Уникальные посещения': len(set(users))})
+users_dict = {"Общее количество": users_amount, "Уникальные посещения": unique_users}
+
+users_amount = len(users)
+unique_users = len(set(users))
+
+users_dict["Общее количество"] = users_amount
+users_dict["Уникальные посещения"] = unique_users
+
+print(users_dict)
