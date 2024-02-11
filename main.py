@@ -1,7 +1,7 @@
 # -*- coding: windows-1251 -*-
 
 class Book:
-    """ Базовый класс книги. """
+    """ ГЃГ Г§Г®ГўГ»Г© ГЄГ«Г Г±Г± ГЄГ­ГЁГЈГЁ. """
 
     def __init__(self, name: str, author: str):
         self._name = name
@@ -14,7 +14,7 @@ class Book:
         return self._author
 
     def __str__(self):
-        return f"Книга {self.name}. Автор {self.author}"
+        return f"ГЉГ­ГЁГЈГ  {self.name}. ГЂГўГІГ®Г° {self.author}"
 
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r})"
@@ -28,10 +28,10 @@ class PaperBook(Book):
 
     def pages(self, value):
         if not isinstance(value, int) or value <= 0:
-            raise ValueError("Количество страниц должно быть положительным целым числом.")
+            raise ValueError("ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГІГ°Г Г­ГЁГ¶ Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГЇГ®Г«Г®Г¦ГЁГІГҐГ«ГјГ­Г»Г¬ Г¶ГҐГ«Г»Г¬ Г·ГЁГ±Г«Г®Г¬.")
         self.pages = value
 
-    # Методы нужно перегрузить так как в базовом классе остутствует атрибут pages
+    # ГЊГҐГІГ®Г¤Г» Г­ГіГ¦Г­Г® ГЇГҐГ°ГҐГЈГ°ГіГ§ГЁГІГј ГІГ ГЄ ГЄГ ГЄ Гў ГЎГ Г§Г®ГўГ®Г¬ ГЄГ«Г Г±Г±ГҐ Г®Г±ГІГіГІГ±ГІГўГіГҐГІ Г ГІГ°ГЁГЎГіГІ pages
 
 
 class AudioBook(Book):
@@ -41,20 +41,12 @@ class AudioBook(Book):
 
     def duration(self, value):
         if not isinstance(value, (int, float)) or value <= 0:
-            raise ValueError("Длительность должна быть положительным числом.")
+            raise ValueError("Г„Г«ГЁГІГҐГ«ГјГ­Г®Г±ГІГј Г¤Г®Г«Г¦Г­Г  ГЎГ»ГІГј ГЇГ®Г«Г®Г¦ГЁГІГҐГ«ГјГ­Г»Г¬ Г·ГЁГ±Г«Г®Г¬.")
         self.duration = value
 
-    # Методы нужно перегрузить так как в базовом классе остутствует атрибут duration
+    # ГЊГҐГІГ®Г¤Г» Г­ГіГ¦Г­Г® ГЇГҐГ°ГҐГЈГ°ГіГ§ГЁГІГј ГІГ ГЄ ГЄГ ГЄ Гў ГЎГ Г§Г®ГўГ®Г¬ ГЄГ«Г Г±Г±ГҐ Г®Г±ГІГіГІГ±ГІГўГіГҐГІ Г ГІГ°ГЁГЎГіГІ duration
     def __str__(self):
-        return f"Книга {self.name}. Автор {self.author}. Длительность: {self.duration} часов"
+        return f"ГЉГ­ГЁГЈГ  {self.name}. ГЂГўГІГ®Г° {self.author}. Г„Г«ГЁГІГҐГ«ГјГ­Г®Г±ГІГј: {self.duration} Г·Г Г±Г®Гў"
 
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, duration={self.duration!r})"
-
-
-if __name__ == "__main__":
-    book = Book("pupa", "lupa")
-    p_book = PaperBook("pupa", "lupa", 3)
-    a_book = AudioBook("pupa", "lupa", 15.3)
-    print(a_book.__repr__())
-    print(p_book.__str__())
