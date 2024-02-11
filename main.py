@@ -1,7 +1,6 @@
-# -*- coding: windows-1251 -*-
 
 class Book:
-    """ Áàçîâûé êëàññ êíèãè. """
+    """ Базовый класс книги. """
 
     def __init__(self, name: str, author: str):
         self._name = name
